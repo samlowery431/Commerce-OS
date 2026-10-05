@@ -1,20 +1,22 @@
-name: Edge Function Tests
+name: Commerce OS Tests
 
 on:
   pull_request:
     paths:
       - 'supabase/functions/**'
+      - 'workers/sia/**'
       - '.github/workflows/edge-function-tests.yml'
   push:
     branches: [main]
     paths:
       - 'supabase/functions/**'
+      - 'workers/sia/**'
 
 permissions:
   contents: read
 
 jobs:
-  test:
+  edge-function:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,3 +26,14 @@ jobs:
       - name: Test research-node-api
         working-directory: supabase/functions/research-node-api
         run: deno task test
+
+  sia-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test SIA worker contracts
+        working-directory: workers/sia
+        run: npm test
