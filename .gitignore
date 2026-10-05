@@ -1,0 +1,30 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Browser/session state
+browser-profile/
+playwright/.auth/
+
+# Generated/staging data
+data/staging/
+data/audits/
+*.jsonl
+*.csv
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
