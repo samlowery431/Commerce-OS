@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Commerce OS SIA discovery candidate",
+  "type": "object",
+  "required": ["canonical_domain", "discovery_url"],
+  "properties": {
+    "canonical_domain": {"type": "string", "minLength": 1},
+    "discovered_name": {"type": ["string", "null"]},
+    "discovery_url": {"type": "string", "minLength": 1},
+    "discovery_method": {"type": "string"},
+    "country_code": {"type": ["string", "null"]},
+    "evidence": {"type": "object"},
+    "evidence_sha256": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}
