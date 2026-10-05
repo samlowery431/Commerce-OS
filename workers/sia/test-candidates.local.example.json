@@ -1,0 +1,12 @@
+[
+  {
+    "canonical_domain": "example.invalid",
+    "discovered_name": "Controlled SIA Smoke Candidate",
+    "discovery_url": "https://example.invalid/sia-smoke",
+    "discovery_method": "CONTROLLED_SMOKE_TEST",
+    "evidence": {
+      "synthetic": true,
+      "purpose": "post-deploy API validation only"
+    }
+  }
+]
