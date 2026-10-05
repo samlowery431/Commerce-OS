@@ -1,0 +1,12 @@
+[
+  {
+    "canonical_domain": "example.com",
+    "discovered_name": "Example Supplier",
+    "discovery_url": "https://example.com/wholesale",
+    "discovery_method": "AUTONOMOUS_WEB_DISCOVERY",
+    "country_code": "US",
+    "evidence": {
+      "example_only": true
+    }
+  }
+]
