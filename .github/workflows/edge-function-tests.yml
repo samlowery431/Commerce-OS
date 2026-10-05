@@ -1,0 +1,26 @@
+name: Edge Function Tests
+
+on:
+  pull_request:
+    paths:
+      - 'supabase/functions/**'
+      - '.github/workflows/edge-function-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'supabase/functions/**'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Test research-node-api
+        working-directory: supabase/functions/research-node-api
+        run: deno task test
