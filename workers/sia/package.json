@@ -1,0 +1,12 @@
+{
+  "name": "commerce-os-sia-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "smoke": "node smoke-probe.mjs"
+  }
+}
