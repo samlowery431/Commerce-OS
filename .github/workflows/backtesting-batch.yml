@@ -1,0 +1,29 @@
+name: Backtesting synthetic batch
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Synthetic infrastructure tests (1-1000)"
+        required: true
+        default: "100"
+  push:
+    paths:
+      - 'backtesting/batch.py'
+      - '.github/workflows/backtesting-batch.yml'
+permissions:
+  contents: read
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute bounded synthetic test batch
+        env:
+          TEST_COUNT: ${{ inputs.count || '100' }}
+        run: python3 backtesting/batch.py --count "$TEST_COUNT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-batch-result
+          path: backtesting/batch-result.json
+          retention-days: 7
