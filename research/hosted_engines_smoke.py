@@ -24,7 +24,7 @@ class Cross(Strategy):
         elif crossover(self.slow, self.fast):
             if self.position: self.position.close()
 bt = Backtest(bars, Cross, cash=500, commission=.001, exclusive_orders=True,
-              fractional_unit=0.001, finalize_trades=True)
+              finalize_trades=True)
 result = bt.run()
 assert len(result) > 0
 s = pd.Series(close, index=index)
