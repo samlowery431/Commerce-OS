@@ -1,0 +1,20 @@
+name: Hosted backtesting engines smoke
+on:
+  push:
+    paths:
+      - 'research/hosted_engines_smoke.py'
+      - '.github/workflows/hosted-engines-smoke.yml'
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check 'numpy<3' pandas 'backtesting>=0.5,<0.7' 'vectorbt>=0.26,<0.29'
+      - run: python research/hosted_engines_smoke.py
